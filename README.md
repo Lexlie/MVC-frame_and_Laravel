@@ -1,7 +1,50 @@
 ## 執行此專案的流程
 
 1. 下載並安裝 XAMPP 及 composer
-2. 開啟 XAMPP 中的
+2. 開啟 XAMPP 中的 Apache 及 MYSQL<br>
+    ![](https://i.imgur.com/ZdGZqtQ.png)
+3. 開啟 MYSQL admin
+    ![](https://i.imgur.com/JexUwLF.png)
+4. 建立新的database<br>
+    ![](https://i.imgur.com/0AorO2E.png)<br>
+    ![](https://i.imgur.com/IZn5Ajo.png)
+5. 打開.env.example檔案，更改檔名成.env，在DB_DATABASE欄位填入你剛剛設定的資料庫名稱<br>
+    ![](https://i.imgur.com/XkxbUfL.png)
+
+6. 開啟命令提示字元，或是其他可以下指令的工具(之後簡稱為CRI)，輸入下方指令
+    ```php=
+    php artisan key:generate
+    ```
+    之後檢查.env檔的APP_KEY欄位是否有值<br>
+    ![](https://i.imgur.com/wxdKIHQ.png)
+7. 在CRI輸入下方指令，以記錄現有的Migrations
+    ```composer=
+    composer dump-autoload
+    ```
+8. 在CRI輸入下方指令，建立資料表及預存資料
+    ```php=
+    php artisan migrate
+    php artisan db:seed
+    ```
+    或是合成一行執行
+    ```php=
+    php artisan migrate --seed
+    ```
+9. 在CRI輸入下方指令，啟動Laravel框架
+    ```php=
+    php artisan serve
+    ```
+10. 開啟瀏覽器，在網址列輸入localhost:8000或127.0.0.1:8000
+
+## 重要基本元件位置
+1. Routes: routes/web.php
+2. Middleware: App/Http/Middleware
+3. Model: App/Http/Models
+4. View: resources/views
+5. Controller: App/Http/Controllers
+6. Migration: database/migrations
+7. Seeder: database/seeders
+
 
 ---
 
